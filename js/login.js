@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (result.success) {
                 // Puedes guardar el usuario en localStorage/sessionStorage si quieres
                 localStorage.setItem('usuario', JSON.stringify(result.usuario));
-                window.location.href = '/equipos.html';
+                window.location.href = 'equipos.html';
             } else {
                 alert(result.error || 'Usuario o contraseña incorrectos');
             }
