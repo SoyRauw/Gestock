@@ -39,7 +39,7 @@ const puedeModificar = usuario.Tipo_usuario === 'A' || usuario.Tipo_usuario === 
     // Función para cargar los equipos desde la API
     async function cargarEquipos() {
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/computadoras');
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/computadoras');
         if (!response.ok) throw new Error('Error al cargar equipos');
         
         equiposData = await response.json();
@@ -103,8 +103,8 @@ const puedeModificar = usuario.Tipo_usuario === 'A' || usuario.Tipo_usuario === 
         try {
             // Cargar usuarios y ubicaciones primero
             const [ubicaciones, usuarios] = await Promise.all([
-                fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion').then(res => res.json()),
-                fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios').then(res => res.json())
+                fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion').then(res => res.json()),
+                fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios').then(res => res.json())
             ]);
 
             const modalHTML = `
@@ -324,7 +324,7 @@ window.modificarEquipo = async function(boton) {
         };
 
         try {
-            const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/computadoras/${idEquipo}`, {
+            const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/computadoras/${idEquipo}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(equipoActualizado)
