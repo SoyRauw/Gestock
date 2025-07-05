@@ -1,0 +1,126 @@
+/* notificaciones.css */
+.notificaciones-icono {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.notificaciones-panel {
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 350px;
+    height: 93.55%;
+    background-color: #0c121c;
+    color: white;
+    padding: 30px;
+    transition: right 0.3s ease;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    z-index: 999;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+#notificaciones-toggle:checked ~ .notificaciones-panel {
+    right: 0;
+}
+
+.notificaciones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2bffff;
+    margin-bottom: 20px;
+    margin-top: 4vh;
+}
+
+.notificaciones-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notificaciones-lista li {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #2bffff;
+    padding-bottom: 10px;
+}
+
+.cerrar-btn {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+
+/* Oculta el checkbox */
+.hidden-toggle {
+    display: none;
+}
+
+/* Notificación individual */
+.notificaciones-lista li {
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background: #181f2e;
+    box-shadow: 0 2px 8px rgba(43,255,255,0.07);
+    padding: 16px 18px 12px 18px;
+    border-left: 4px solid #2bffff;
+    transition: background 0.2s;
+    position: relative;
+}
+
+.notificaciones-lista li:hover {
+    background: #232b3e;
+}
+
+.notificaciones-lista strong {
+    color: #2bffff;
+    font-size: 1.08em;
+    letter-spacing: 0.5px;
+}
+
+.notificaciones-lista .estado-badge {
+    display: inline-block;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    padding: 2px 10px;
+    border-radius: 8px;
+    font-size: 0.93em;
+    font-weight: 600;
+    background: #2bffff22;
+    color: #2bffff;
+}
+
+
+.estado-badge.no-leido {
+    background: #ff3939;
+    color: #fff;
+}
+
+.notificaciones-lista small {
+    display: block;
+    color: #b0c4d4;
+    font-size: 0.93em;
+    margin-top: 2px;
+    margin-bottom: 0;
+    letter-spacing: 0.2px;
+}
+
+.notificaciones-panel {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.notificaciones-lista {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    max-height: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.notificaciones-lista::-webkit-scrollbar {
+    display: none;
+}

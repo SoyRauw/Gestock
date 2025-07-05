@@ -1,0 +1,83 @@
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #1a2133;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 250px; /* Ajuste para el sidebar */
+}
+
+.main-container h1 {
+  margin-right: 17%;
+}
+
+.main-panel {
+  background-color: #0c121c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 90%;
+  max-width: 800px;
+  padding: 30px;
+  margin-top: 5%;
+  margin-right: 15%;
+}
+
+.help-section.visible {
+  display: block;
+}
+
+.help-section {
+  display: none;
+}
+
+#acerca:target,
+#manual:target,
+#info:target {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+/* Oculta las secciones cuando no son el target */
+#acerca:not(:target),
+#manual:not(:target),
+#info:not(:target) {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 2. Estilo activo para botones */
+.buttons-group a[href="#acerca"].active,
+.buttons-group a[href="#manual"].active,
+.buttons-group a[href="#info"].active,
+#acerca:target ~ .main-container .buttons-group a[href="#acerca"],
+#manual:target ~ .main-container .buttons-group a[href="#manual"],
+#info:target ~ .main-container .buttons-group a[href="#info"] {
+  background-color: #5a6a89 !important;
+  color: #000 !important;
+}
+
+.bottom-options {
+  margin-top: 34.86vh;
+  gap: 0.02vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-options button {
+  margin-top: 10%;
+}

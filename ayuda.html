@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestock - Ayuda</title>
+    
+    <link rel="stylesheet" href="css/equipos.css" />
+    <link rel="stylesheet" href="css/notificaciones.css" />
+    <link rel="stylesheet" href="css/user-settings.css" />
+    <link rel="stylesheet" href="css/ayuda.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+    </head>
+    
+    <body>
+        <a class="user-button" href="equipos.html">
+            <img src="images/home.png" alt="home" width="32" />
+        </a>
+
+        <input type="checkbox" id="notificaciones-toggle" class="hidden-toggle" />
+        <label for="notificaciones-toggle" class="notificaciones-icono">
+            <img
+            src="images/notifications.png" alt="Notificaciones" width="24" />
+        </label>
+    
+        <div class="notificaciones-panel">
+            <div class="notificaciones-header">
+                <h2>Notificaciones</h2>
+            </div>
+            <ul class="notificaciones-lista">
+                
+            </ul>
+        </div>
+
+        <div class="container">
+            <!-- Menú lateral -->
+            <div class="sidebar-menu">
+                <img src="images/gestock.png" alt="Logo" />
+                <div class="buttoms-group">
+                    <a href="#acerca" class="menu-btn active">
+                        <button type="acercade-button">Acerca de</button>
+                    </a>
+                    <a href="#manual" class="menu-btn"">
+                        <button type="manual-button">Manual</button>
+                    </a>
+                    
+                    <a href="#info" class="menu-btn">
+                        <button type="info-button">Info</button>
+                    </a>
+
+                    <div class="bottom-options">
+                        <a href="ayuda.html#acerca"><button type="ayuda-button">Ayuda</button></a>
+                        <a href="index.html">
+                        <button id="logout-button">Cerrar Sesión</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
+        <!-- Contenido principal -->
+        <div class="main-container">
+            <h1>Ayuda</h1>
+            <div class="main-panel">
+                <div id="acerca" class="help-section visible">
+                    <h2>Acerca de Gestock</h2>
+                    <p>La Universidad de Innovación Tecnológica es una institución de educación superior dedicada a la enseñanza y la investigación en ciencias de tecnologías avanzadas. El laboratorio de computación es una parte integral del Departamento de Ingeniería Informática y proporciona recursos tecnológicos para estudiantes y profesores.</p>
+                </div>
+                <div id="manual" class="help-section">
+                    <h2>Manual de Usuario</h2>
+                    <p>Contenido del manual...</p>
+                </div>
+                <div id="info" class="help-section">
+                    <h2>Información</h2>
+                    <p>Contacto: ayudagestock@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts (opcional) -->
+        <script src=""></script>
+        <script type="module">
+            import { cargarNotificaciones } from './js/notificaciones.js';
+            document.addEventListener('DOMContentLoaded', cargarNotificaciones);
+            setInterval(cargarNotificaciones, 10000); // Actualiza cada 10 segundos
+        </script>
+    </body>
+</html>
