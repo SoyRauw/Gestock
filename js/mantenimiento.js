@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar mantenimientos desde la API
     async function cargarMantenimientos() {
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento');
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento');
         if (!response.ok) throw new Error('Error al cargar mantenimientos');
         mantenimientoData = await response.json();
         // Ordena para que los más nuevos estén arriba
@@ -116,10 +116,10 @@ function renderizarTablaMantenimiento(data) {
     async function mostrarModalAgregarMantenimiento() {
     // Carga los datos para los selects
     const [equipos, usuarios, ubicaciones, alertas] = await Promise.all([
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/computadoras').then(res => res.json()),
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios').then(res => res.json()),
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion').then(res => res.json()),
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/alertas').then(res => res.json())
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/computadoras').then(res => res.json()),
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios').then(res => res.json()),
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion').then(res => res.json()),
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/alertas').then(res => res.json())
     ]);
 
     const modalHTML = `
@@ -247,7 +247,7 @@ if (equipoSelect) {
     };
 
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento', {
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(nuevoMantenimiento)
@@ -261,7 +261,7 @@ if (equipoSelect) {
         // Marcar alerta como leída si corresponde
         if (nuevoMantenimiento.Id_alerta) {
             try {
-                await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/alertas/${nuevoMantenimiento.Id_alerta}`, {
+                await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/alertas/${nuevoMantenimiento.Id_alerta}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ Estado: 'Leído' })
@@ -290,10 +290,10 @@ async function mostrarModalEditarMantenimiento(id) {
 
     // Carga los datos para los selects
     const [equipos, usuarios, ubicaciones, alertas] = await Promise.all([
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/computadoras').then(res => res.json()),
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios').then(res => res.json()),
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion').then(res => res.json()),
-        fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/alertas').then(res => res.json())
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/computadoras').then(res => res.json()),
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios').then(res => res.json()),
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion').then(res => res.json()),
+        fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/alertas').then(res => res.json())
     ]);
 
     const alertasNoLeidas = alertas.filter(a =>
@@ -394,7 +394,7 @@ async function mostrarModalEditarMantenimiento(id) {
         };
 
         try {
-            const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento/${id}`, {
+            const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(mantenimientoActualizado)
@@ -422,7 +422,7 @@ async function mostrarModalEditarMantenimiento(id) {
             return;
         }
         try {
-            const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento/${id}`, {
+            const response = await fetch(`httpss://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento/${id}`, {
                 method: 'DELETE'
             });
             if (!response.ok) throw new Error('Error al eliminar mantenimiento');
@@ -465,7 +465,7 @@ async function mostrarModalEditarMantenimiento(id) {
     const fechaFin = new Date().toISOString().split('T')[0];
     try {
         // Actualiza el mantenimiento a "Listo"
-        const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento/${id}`, {
+        const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/mantenimiento/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -476,7 +476,7 @@ async function mostrarModalEditarMantenimiento(id) {
         if (!response.ok) throw new Error('Error al finalizar mantenimiento');
 
         // Crea la notificación
-        await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/notificacion', {
+        await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/notificacion', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -491,7 +491,7 @@ async function mostrarModalEditarMantenimiento(id) {
         // Marcar alerta como "Resuelta" si corresponde
         if (item.Id_alerta) {
             try {
-                await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/alertas/${item.Id_alerta}`, {
+                await fetch(`httpss://8wtfdfb8-3000.use2.devtunnels.ms/alertas/${item.Id_alerta}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ Estado: 'Resuelta' })
@@ -570,7 +570,7 @@ function exportarTablaPDF() {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
             localStorage.removeItem('usuario');
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         });
     }
 });
