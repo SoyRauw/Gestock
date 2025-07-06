@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         const email = form.querySelector('input[type="email"]').value;
         try {
-            const res = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/recuperar', {
+            const res = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/recuperar', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })
