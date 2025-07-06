@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const codigo = codeInput.value;
         const nuevaContrasena = passInput.value;
         try {
-            const res = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/cambiar-contrasena', {
+            const res = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/cambiar-contrasena', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, codigo, nuevaContrasena })
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await res.json();
             if (result.success) {
                 alert('Contraseña cambiada correctamente. Ahora puedes iniciar sesión.');
-                window.location.href = '/index.html';
+                window.location.href = 'index.html';
             } else {
                 alert(result.error || 'No se pudo cambiar la contraseña.');
             }
