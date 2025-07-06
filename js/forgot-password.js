@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (result.success) {
                 alert('Se ha enviado un código de recuperación a tu correo.');
                 // Redirige a reset-password.html y pasa el email por querystring
-                window.location.href = `/reset-password.html?email=${encodeURIComponent(email)}`;
+                window.location.href = `reset-password.html?email=${encodeURIComponent(email)}`;
             } else {
                 alert(result.error || 'No se pudo enviar el correo.');
             }
