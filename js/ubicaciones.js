@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     if (!usuario) {
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
     }
     const puedeModificar = usuario.Tipo_usuario === 'A' || usuario.Tipo_usuario === 'C';
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar ubicaciones desde la API
     async function cargarUbicaciones() {
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion');
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion');
         if (!response.ok) throw new Error('Error al cargar ubicaciones');
         ubicacionesData = await response.json();
         // Ordena para que los más nuevos estén arriba
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Capacidad: formData.get('capacidad') || null
         };
         try {
-            const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion', {
+            const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(nuevaUbicacion)
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Capacidad: formData.get('capacidad') || null
         };
         try {
-            const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion/${id}`, {
+            const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(ubicacionActualizada)
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function eliminarUbicacion(id) {
         if (!confirm('¿Está seguro que desea eliminar esta ubicación?')) return;
         try {
-            const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion/${id}`, {
+            const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/ubicacion/${id}`, {
                 method: 'DELETE'
             });
             if (!response.ok) throw new Error('Error al eliminar ubicación');
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault(); // Evita que el <a> recargue la página antes de limpiar
             localStorage.removeItem('usuario');
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         });
     }
 
