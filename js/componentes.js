@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Control de acceso por tipo de usuario
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     if (!usuario) {
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -513,7 +513,7 @@ if (logoutBtn) {
     logoutBtn.addEventListener('click', function(e) {
         e.preventDefault(); // Evita que el <a> recargue la página antes de limpiar
         localStorage.removeItem('usuario');
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
     });
 }
 });
