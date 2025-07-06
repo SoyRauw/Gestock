@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Control de acceso por tipo de usuario
 const usuario = JSON.parse(localStorage.getItem('usuario'));
 if (!usuario) {
-    window.location.href = '/index.html';
+    window.location.href = 'index.html';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar usuarios desde la API
     async function cargarUsuarios() {
         try {
-            const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios');
+            const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios');
             if (!response.ok) throw new Error('Error al cargar usuarios');
             usuariosData = await response.json();
             renderizarTablaUsuarios(usuariosData);
@@ -176,7 +176,7 @@ async function agregarUsuario() {
         Tipo_usuario: formData.get('Tipo_usuario')
 };
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios', {
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(nuevoUsuario)
@@ -195,7 +195,7 @@ async function agregarUsuario() {
     async function eliminarUsuario(id) {
         if (!confirm('¿Está seguro que desea eliminar este usuario?')) return;
         try {
-            const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/${id}`, {
+            const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/${id}`, {
                 method: 'DELETE'
             });
             if (!response.ok) throw new Error('Error al eliminar usuario');
@@ -291,7 +291,7 @@ async function editarUsuario(id) {
         Tipo_usuario: formData.get('Tipo_usuario')
     };
     try {
-        const response = await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/${id}`, {
+        const response = await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/${id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(usuarioActualizado)
@@ -324,7 +324,7 @@ async function editarUsuario(id) {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault(); // Evita que el <a> recargue la página antes de limpiar
             localStorage.removeItem('usuario');
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         });
     }
     
