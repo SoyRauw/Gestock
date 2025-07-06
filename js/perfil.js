@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     if (!usuario) {
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
         return;
     }
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Envía los datos al backend para validar la contraseña y actualizar el perfil
         try {
-            const res = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/actualizar-perfil', {
+            const res = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/usuarios/actualizar-perfil', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault(); // Evita que el <a> recargue la página antes de limpiar
             localStorage.removeItem('usuario');
-            window.location.href = '/index.html';
+            window.location.href = 'index.html';
         });
     }
 
