@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     if (!usuario) {
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
     }
 
     // Control de acceso: solo admin y coordinador pueden modificar
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar alertas desde la API
     async function cargarAlertas() {
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/alertas');
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/alertas');
         if (!response.ok) throw new Error('Error al cargar alertas');
         alertasData = await response.json();
         // Ordena para que las más nuevas estén arriba
@@ -419,7 +419,7 @@ if (logoutBtn) {
     logoutBtn.addEventListener('click', function(e) {
         e.preventDefault(); // Evita que el <a> recargue la página antes de limpiar
         localStorage.removeItem('usuario');
-        window.location.href = '/index.html';
+        window.location.href = 'index.html';
     });
 }
 
