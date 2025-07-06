@@ -1,6 +1,6 @@
 export async function cargarNotificaciones() {
     try {
-        const response = await fetch('http://8wtfdfb8-3000.use2.devtunnels.ms/notificacion');
+        const response = await fetch('https://8wtfdfb8-3000.use2.devtunnels.ms/notificacion');
         if (!response.ok) throw new Error('Error al cargar notificaciones');
         const notificaciones = await response.json();
         renderizarNotificaciones(notificaciones);
@@ -51,7 +51,7 @@ export function renderizarNotificaciones(notificaciones) {
         li.addEventListener('click', async () => {
             if (n.Estado === 'Leído' || n.Estado === 'Leido') return;
             try {
-                await fetch(`http://8wtfdfb8-3000.use2.devtunnels.ms/notificacion/${n.Id_notificacion}`, {
+                await fetch(`https://8wtfdfb8-3000.use2.devtunnels.ms/notificacion/${n.Id_notificacion}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ Estado: 'Leído' })
