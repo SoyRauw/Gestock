@@ -211,6 +211,11 @@ table {
     margin-left: auto;
 }
 
+.top-table-buttons :hover {
+    color: #29fefd;
+    cursor: pointer;
+}
+
 .top-table-buttons button {
     font-family: "Poppins", sans-serif;
     background-color: transparent;
