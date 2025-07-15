@@ -211,7 +211,7 @@ table {
     margin-left: auto;
 }
 
-.top-table-buttons:hover button {
+.export-button:hover {
     color: #29fefd;
     cursor: pointer;
 }
