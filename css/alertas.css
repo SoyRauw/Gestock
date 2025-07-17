@@ -537,7 +537,7 @@ tr.seleccionado {
     cursor: not-allowed;
 }
 
-.export-button:hover {
+.top-table-buttons:hover button {
     color: #29fefd;
     cursor: pointer;
 }
