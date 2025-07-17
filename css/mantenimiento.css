@@ -184,7 +184,6 @@ body {
 
 .tabla-container {
   width: 100%;
-  height: 100%;
   background-color: #0c111b;
   padding: 2%;
   border-radius: 2vh;
@@ -574,4 +573,9 @@ tr.seleccionado {
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
+}
+
+.top-table-buttons:hover button {
+    color: #29fefd;
+    cursor: pointer;
 }
