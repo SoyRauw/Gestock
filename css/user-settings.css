@@ -183,14 +183,18 @@ body {
 }
 
 .tabla-container {
-  width: 100%;
-  height: 100%;
+  width: 100%;;
   background-color: #0c111b;
   padding: 2%;
   border-radius: 2vh;
   border: 0.3vh solid #fff;
   margin-top: 20px;
   overflow-x: auto;
+}
+
+.top-table-buttons:hover button {
+    color: #29fefd;
+    cursor: pointer;
 }
 
 table {
