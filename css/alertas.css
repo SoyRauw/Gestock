@@ -536,3 +536,8 @@ tr.seleccionado {
     pointer-events: none;
     cursor: not-allowed;
 }
+
+.export-button:hover {
+    color: #29fefd;
+    cursor: pointer;
+}
