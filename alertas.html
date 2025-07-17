@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestock - Alertas</title>
+    <link rel="stylesheet" href="css/alertas.css" />
+    <link rel="stylesheet" href="css/notificaciones.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <a class="user-button" href="user-settings.html">
+        <img src="images/user.png" alt="user-icon" width="24" />
+    </a>
+
+    <label for="notificaciones-toggle" class="notificaciones-icono">
+        <img
+        src="images/notifications.png" alt="Notificaciones" width="24" />
+    </label>
+    <!-- Sistema de notificaciones -->
+    <input type="checkbox" id="notificaciones-toggle" class="hidden-toggle">
+
+    <div class="notificaciones-panel">
+        <div class="notificaciones-header">
+            <h2>Notificaciones</h2>
+           
+        </div>
+        <ul class="notificaciones-lista">
+            
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="sidebar-menu">
+            <img src="images/gestock.png" alt="Logo" />
+            <div class="buttoms-group">
+                <a href="equipos.html"><button type="equipos-button">Equipos</button></a>
+                <a href="componentes.html"><button type="componentes-button">Componentes</button></a>
+                <a href="mantenimiento.html"><button type="mantenimiento-button">Mantenimiento</button></a>
+                <a href="ubicaciones.html"><button type="ubicaciones-button">Ubicaciones</button></a>
+                <a href="alertas.html"><button type="alertas-button">Alertas</button></a>
+                <div class="bottom-options">
+                    <a href="ayuda.html#acerca"><button type="ayuda-button">Ayuda</button></a>
+                    <a href="index.html"><button id="logout-button">Cerrar Sesión</button></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-container">
+            <h1 id="equipos">Alertas</h1>
+            <div class="top-options">
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar..." id="search-input" />
+                    <div class="top-bar"><button class="add-button">+ Añadir Alerta</button></div>
+                </div>
+            </div>
+
+            <div class="top-table-buttons">
+                <div class="top-table-left-buttons">
+
+                </div>
+                <div class="top-table-right-buttons"><button class="export-button">Exportar a PDF</button></div>
+            </div>
+
+            <section class="tabla-container">
+                <table id="tabla">
+                    <thead>
+                        <tr>
+                            <th>Editar</th>
+                            <th>Fecha</th>
+                            <th>Mensaje</th>
+                            <th>Usuario</th>
+                            <th>Equipo</th>
+                            <th>Ubicacion</th>
+                            <th>Estado</th>
+                            <th>Prioridad</th>
+                            <th>Borrar</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="js/alertas.js"></script>
+    <script type="module">
+            import { cargarNotificaciones } from './js/notificaciones.js';
+            document.addEventListener('DOMContentLoaded', cargarNotificaciones);
+            setInterval(cargarNotificaciones, 10000); // Actualiza cada 10 segundos
+        </script>
+</body>
+</html>

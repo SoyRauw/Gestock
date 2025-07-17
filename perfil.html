@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestock - Perfil</title>
+    
+    <link rel="stylesheet" href="css/equipos.css" />
+    <link rel="stylesheet" href="css/notificaciones.css" />
+    <link rel="stylesheet" href="css/user-settings.css" />
+    <link rel="stylesheet" href="css/perfil.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+    </head>
+    
+    <body>
+        <a class="user-button" href="equipos.html">
+            <img src="images/home.png" alt="home" width="32" />
+        </a>
+
+        <input type="checkbox" id="notificaciones-toggle" class="hidden-toggle" />
+        <label for="notificaciones-toggle" class="notificaciones-icono">
+            <img
+            src="images/notifications.png" alt="Notificaciones" width="24" />
+        </label>
+    
+        <div class="notificaciones-panel">
+            <div class="notificaciones-header">
+                <h2>Notificaciones</h2>
+            </div>
+            <ul class="notificaciones-lista">
+                
+            </ul>
+        </div>
+
+        <div class="container">
+            <div class="sidebar-menu">
+                <img src="images/gestock.png" alt="Logo" />
+                <div class="buttoms-group">
+                    <a href="perfil.html">
+                        <button type="perfil-button">Perfil</button>
+                    </a>
+                    <a href="user-settings.html">
+                        <button type="usuarios-button">Usuarios</button>
+                    </a>
+
+                    <div class="bottom-options">
+                        <a href="ayuda.html#acerca"><button type="ayuda-button">Ayuda</button></a>
+                        <a href="index.html">
+                        <button id="logout-button">Cerrar Sesión</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <div class="main-container">
+            <div class="perfil-panel">
+
+                <div class="form-section">
+                    <h1>Editar Perfil</h1>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Cédula</label>
+                            <input type="text" placeholder="Ingrese su cédula">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nacionalidad</label>
+                            <select class="form-select">
+                                <option value="" selected disabled>Seleccione</option>
+                                <option value="V">Venezolana</option>
+                                <option value="E">Extranjera</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nombre Completo</label>
+                            <input type="full-name" placeholder="Ingrese su correo">
+                        </div>
+                           <div class="form-group">
+                            <label>Nombre de usuario</label>
+                            <input type="username" placeholder="Ingrese su correo">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Correo electrónico</label>
+                            <input type="email" placeholder="Ingrese su correo">
+                        </div>
+
+                          <div class="form-group">
+                            <label>Rol</label>
+                                <select class="form-select" disabled>
+                                    <option value="" selected disabled>Seleccione</option>
+                                    <option value="A">Administrador</option>
+                                    <option value="C">Coordinador</option>
+                                    <option value="M">Personal de Mantenimiento</option>
+                                </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contraseña</label>
+                            <input type="password" placeholder="Ingrese su contraseña">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Confirmar contraseña</label>
+                            <input type="password" placeholder="Confirme su contraseña">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="edit-button">Editar Perfil</button>
+                </div>
+            </div>
+        </div>
+        <script type="module">
+            import { cargarNotificaciones } from './js/notificaciones.js';
+            document.addEventListener('DOMContentLoaded', cargarNotificaciones);
+            setInterval(cargarNotificaciones, 10000); // Actualiza cada 10 segundos
+        </script>
+        <script src="js/perfil.js"></script>
+    </body>
+</html>
